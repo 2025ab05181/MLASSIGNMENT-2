@@ -8,19 +8,21 @@ from pathlib import Path
 
 
 # Path to the directory where the script lives
-BASE_DIR = Path(__file__).resolve().parent
+#BASE_DIR = Path(__file__).resolve().parent
 
 df = pd.read_csv('bank.csv')
 X = df.iloc[:, :-1]
 y = (df.iloc[:, -1] == 'yes').astype(int)
 
-preproc = joblib.load(str(BASE_DIR)+'/preprocessor.pkl')
+#preproc = joblib.load(str(BASE_DIR)+'/preprocessor.pkl')
+preproc = joblib.load('./preprocessor.pkl')
 X_processed = preproc.transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X_processed, y, test_size=0.2, random_state=42)
 
 model = KNeighborsClassifier(n_neighbors=5)
 model.fit(X_train, y_train)
-joblib.dump(model, str(BASE_DIR)+'/knn_model.pkl')
+#joblib.dump(model, str(BASE_DIR)+'/knn_model.pkl')
+joblib.dump(model, './knn_model.pkl')
 
 y_pred = model.predict(X_test)
 y_proba = model.predict_proba(X_test)[:, 1]

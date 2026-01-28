@@ -10,21 +10,23 @@ from pathlib import Path
 
 
 # Path to the directory where the script lives
-BASE_DIR = Path(__file__).resolve().parent
+#BASE_DIR = Path(__file__).resolve().parent
 
 # Load the file
 df = pd.read_csv('bank.csv')
 
 X = df.iloc[:, :-1]
 y = (df.iloc[:, -1] == 'yes').astype(int)
-print(str(BASE_DIR)+'/preprocessor.pkl')
-preproc = joblib.load(str(BASE_DIR)+'/preprocessor.pkl')
+#print(str(BASE_DIR)+'/preprocessor.pkl')
+#preproc = joblib.load(str(BASE_DIR)+'/preprocessor.pkl')
+preproc = joblib.load('./preprocessor.pkl')
 X_processed = preproc.transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X_processed, y, test_size=0.2, random_state=42)
 
 model = LogisticRegression(random_state=42, max_iter=1000)
 model.fit(X_train, y_train)
-joblib.dump(model, str(BASE_DIR)+'/logistic_model.pkl')  # Now model/ 
+#joblib.dump(model, str(BASE_DIR)+'/logistic_model.pkl')  # Now model/ 
+joblib.dump(model, './logistic_model.pkl')  # Now model/ 
 
 
 

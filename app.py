@@ -5,6 +5,11 @@ import numpy as np
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, matthews_corrcoef, roc_auc_score
 from sklearn.preprocessing import LabelEncoder
 import plotly.figure_factory as ff
+from pathlib import Path
+
+
+# Path to the directory where the script lives
+BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(page_title="ML Assignment 2", layout="wide")
 st.title("🧠 ML Classification Models - Bank Dataset")
@@ -14,15 +19,15 @@ st.markdown("Upload test **bank.csv**, select model, view metrics & predictions.
 @st.cache_resource
 def load_all():
     models = {
-        'Logistic Regression': joblib.load('logistic_regression_model.pkl'),
-        'Decision Tree': joblib.load('decision_tree_model.pkl'),
-        'KNN': joblib.load('knn_model.pkl'),
-        'Naive Bayes': joblib.load('naive_bayes_model.pkl'),
-        'Random Forest': joblib.load('random_forest_model.pkl'),
-        'XGBoost': joblib.load('model/xgboost_model.pkl')
+        'Logistic Regression': joblib.load('model/logistic_model.pkl'),
+        'Decision Tree': joblib.load('model/dt_model.pkl'),
+        'KNN': joblib.load('model/knn_model.pkl'),
+        'Naive Bayes': joblib.load('model/nb_model.pkl'),
+        'Random Forest': joblib.load('model/rf_model.pkl'),
+        'XGBoost': joblib.load('model/xgb_model.pkl')
     }
-    full_preproc = joblib.load('preprocessor.pkl')
-    label_encoders = joblib.load('label_encoders.pkl')
+    full_preproc = joblib.load('model/preprocessor.pkl')
+    label_encoders = joblib.load('model/label_encoders.pkl')
     tree_models = ['Decision Tree', 'Random Forest', 'XGBoost']
     return models, full_preproc, label_encoders, tree_models
 

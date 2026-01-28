@@ -9,13 +9,14 @@ from pathlib import Path
 
 
 # Path to the directory where the script lives
-BASE_DIR = Path(__file__).resolve().parent
+#BASE_DIR = Path(__file__).resolve().parent
 
 df = pd.read_csv('bank.csv')
 X = df.iloc[:, :-1]
 y = (df.iloc[:, -1] == 'yes').astype(int)
 
-label_encoders = joblib.load(str(BASE_DIR)+'/label_encoders.pkl')
+label_encoders = joblib.load('./label_encoders.pkl')
+#label_encoders = joblib.load(str(BASE_DIR)+'/label_encoders.pkl')
 cat_cols = list(label_encoders.keys())
 X_tree = X.copy()
 for col in cat_cols:
@@ -27,7 +28,7 @@ X_train, X_test, y_train, y_test = train_test_split(X_processed, y, test_size=0.
 
 model = DecisionTreeClassifier(random_state=42)
 model.fit(X_train, y_train)
-joblib.dump(model, str(BASE_DIR)+'/dt_model.pkl')
+joblib.dump(model,'./dt_model.pkl')
 
 y_pred = model.predict(X_test)
 y_proba = model.predict_proba(X_test)[:, 1]
