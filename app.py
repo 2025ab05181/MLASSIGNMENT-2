@@ -1,27 +1,20 @@
-
 import streamlit as st
 st.set_page_config(page_title="ML Assignment 2", layout="wide")
 
-import pandas as pd
-import joblib
-import numpy as np
-import streamlit as st
+import sys
 import pandas as pd
 import joblib
 import numpy as np
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, matthews_corrcoef, roc_auc_score
-from sklearn.preprocessing import LabelEncoder
 import plotly.figure_factory as ff
 from pathlib import Path
 
-
-
-import sys, sklearn, joblib
+# Optional debug (keep AFTER set_page_config)
 st.write(sys.version)
+import sklearn
 st.write("sklearn", sklearn.__version__)
 st.write("joblib", joblib.__version__)
 
-# Path to the directory where the script lives
 BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(page_title="ML Assignment 2", layout="wide")
