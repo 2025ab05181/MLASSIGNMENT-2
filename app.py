@@ -1,3 +1,10 @@
+
+import streamlit as st
+st.set_page_config(page_title="ML Assignment 2", layout="wide")
+
+import pandas as pd
+import joblib
+import numpy as np
 import streamlit as st
 import pandas as pd
 import joblib
@@ -6,6 +13,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from sklearn.preprocessing import LabelEncoder
 import plotly.figure_factory as ff
 from pathlib import Path
+
 
 
 import sys, sklearn, joblib
