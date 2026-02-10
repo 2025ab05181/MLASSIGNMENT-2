@@ -17,7 +17,7 @@ st.write("joblib", joblib.__version__)
 
 BASE_DIR = Path(__file__).resolve().parent
 
-st.set_page_config(page_title="ML Assignment 2", layout="wide")
+
 st.title("🧠 ML Classification Models - Bank Dataset")
 st.markdown("Upload test **bank.csv**, select model, view metrics & predictions.")
 
