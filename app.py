@@ -8,6 +8,11 @@ import plotly.figure_factory as ff
 from pathlib import Path
 
 
+import sys, sklearn, joblib
+st.write(sys.version)
+st.write("sklearn", sklearn.__version__)
+st.write("joblib", joblib.__version__)
+
 # Path to the directory where the script lives
 BASE_DIR = Path(__file__).resolve().parent
 
