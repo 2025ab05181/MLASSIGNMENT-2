@@ -24,13 +24,9 @@ st.title("🧠 ML Classification Models - Bank Dataset")
 st.markdown("Upload test **bank.csv**, select model, view metrics & predictions.")
 st.sidebar.subheader("⬇️ Download sample dataset")
 
-with open("bank.csv", "rb") as f:
-    st.sidebar.download_button(
-        label="Download bank.csv",
-        data=f,
-        file_name="bank.csv",
-        mime="text/csv",
-    )
+RAW_URL = "https://raw.githubusercontent.com/2025ab05181/MLASSIGNMENT-2/main/bank.csv"
+st.sidebar.markdown(f"[Download bank.csv]({RAW_URL})")
+
 
 
 # Optional debug (AFTER set_page_config)
