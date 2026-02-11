@@ -3,7 +3,7 @@ import joblib
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 
-# Load YOUR actual CSV (auto-detects structure)
+# 
 df = pd.read_csv('bank.csv')  # Your uploaded file
 print("Your dataset shape:", df.shape)
 print("Columns:", df.columns.tolist())
