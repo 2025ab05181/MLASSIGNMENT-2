@@ -5,7 +5,7 @@ Predict whether a bank customer will subscribe to a **term deposit** (`yes`/`no`
 
 ---
 
-## b. Dataset description [1 mark]
+## b. Dataset description 
 | Item | Description |
 |---|---|
 | Dataset file | `bank.csv` |
@@ -16,10 +16,10 @@ Predict whether a bank customer will subscribe to a **term deposit** (`yes`/`no`
 
 ---
 
-## c. Models used [6 marks]
+## c. Models used 
 Metrics were computed on the **saved trained models** (`.pkl`) using a stratified 80/20 split with `random_state=42`.
 
-### 1) Comparison table (all 6 models)
+### 1) Comparison table 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---:|---:|---:|---:|---:|---:|
 | Logistic Regression | 0.826691 | 0.910291 | 0.832507 | 0.793951 | 0.812772 | 0.652258 |
@@ -29,7 +29,7 @@ Metrics were computed on the **saved trained models** (`.pkl`) using a stratifie
 | Random Forest (Ensemble) | 0.977161 | 0.994633 | 0.958144 | 0.995274 | 0.976356 | 0.954929 |
 | XGBoost (Ensemble) | 0.939991 | 0.981946 | 0.915468 | 0.962193 | 0.938249 | 0.880988 |
 
-### 2) Observations on model performance [3 marks]
+### 2) Observations on model performance 
 | ML Model Name | Observation about model performance |
 |---|---|
 | Logistic Regression | Good baseline with strong AUC, but lower than tree ensembles, suggesting nonlinear feature interactions exist. |
